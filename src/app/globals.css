@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Neat';
+  src: url('/fonts/Neat.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tan';
+  src: url('/fonts/tan.ttf') format('truetype');
+}
+
+@theme{
+  --font-neat: 'Neat', sans-serif;
+  --font-tan: 'Tan', sans-serif;
+}
+
+
