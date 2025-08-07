@@ -1,23 +1,21 @@
-import { CgArrowLongRight } from "react-icons/cg"; 
-import React from 'react'
-import Image from 'next/image'
-import { HiOutlineArrowLongRight } from "react-icons/hi"; 
+import React from 'react';
+import Image from 'next/image';
+import logo from '../../../public/images/b.png'
+
 
 function Navbar() {
   return (
-    <div className="flex items-center justify-between">
-        <div className="flex items-center">
-            <Image src=''/>
-            <span className="text-2xl font-tan text-orange-600">Rosopak</span>
-        </div>
-        <div className="flex items-center space-x-3.5">
-            <span className="w-8 h-8">
-              
-            </span>
-            <span>START A PROJECT</span>
-        </div>
+    <div className="flex items-center justify-between px-10 py-5">
+      <Image 
+        src={logo}
+        width={50}
+        height={50}
+      />
+      <div>
+        <span className='text-3xl'>START A PROJECT</span>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
