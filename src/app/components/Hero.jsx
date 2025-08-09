@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [shineKey, setShineKey] = useState(0);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -119,15 +120,22 @@ export default function Hero() {
         {/* Main Typography */}
         <div className="mb-4">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-none tracking-tight">
-            <span 
-              className="block text-7xl md:text-9xl lg:text-[12rem] text-black"
-              style={{
-                textShadow: '0 0 15px rgba(0,0,0,0.15), 0 0 30px rgba(0,0,0,0.1), 0 0 45px rgba(0,0,0,0.05)',
-                filter: 'drop-shadow(0 0 8px rgba(0,0,0,0.2))',
-              }}
-            >
-              Meet Bilal
-            </span>
+           <span
+  className="block text-7xl md:text-9xl lg:text-[12rem]"
+  style={{
+    backgroundImage: 'linear-gradient(0deg, #000000, #3B3737, #000000)',
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    textShadow:
+      '0 0 15px rgba(0,0,0,0.15), 0 0 30px rgba(0,0,0,0.1), 0 0 45px rgba(0,0,0,0.05)',
+    filter: 'drop-shadow(0 0 8px rgba(0,0,0,0.2))',
+  }}
+>
+  Meet Bilal
+</span>
+
+
           </h1>
         </div>
 
@@ -145,17 +153,44 @@ export default function Hero() {
 
         {/* CTA Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-10">
-          {/* Let's Connect Button */}
-          <button 
-            className="px-8 py-4 bg-gray-200 text-black border border-gray-300 font-semibold rounded-full hover:bg-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-3 cursor-pointer"
+         <button
+  className="relative px-8 py-4 bg-gray-200 text-black border border-gray-300 font-semibold rounded-full hover:bg-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-3 cursor-pointer overflow-hidden"
+  style={{
+    boxShadow:
+      '0 4px 12px rgba(0,0,0,0.08), 0 0 15px rgba(0,0,0,0.03)',
+  }}
+  onMouseEnter={() => setShineKey((prev) => prev + 1)} // Restart shine each hover
+>
+  {/* Shine overlay */}
+  <span
+    key={shineKey}
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: '-100%',
+      width: '50%',
+      height: '100%',
+      backgroundImage:
+        'linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent)',
+      transform: 'skewX(-20deg)',
+      animation: 'shineMove 1s ease forwards',
+    }}
+  />
 
-            style={{
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08), 0 0 15px rgba(0,0,0,0.03)',
-            }}
-          >
-            {"Let's Connect"}
-            <span className="text-xl">→</span>
-          </button>
+  <span className="text-lg font-medium relative z-10">
+    {"Let's Connect"} <span className="text-xl">→</span>
+  </span>
+
+  {/* Inline keyframes */}
+  <style>
+    {`
+      @keyframes shineMove {
+        0% { left: -100%; }
+        100% { left: 150%; }
+      }
+    `}
+  </style>
+</button>
 
           {/* Available for Work Status */}
           <div className="flex items-center gap-3">
