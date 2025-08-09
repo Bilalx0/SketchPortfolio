@@ -132,15 +132,14 @@ export default function Hero() {
         </div>
 
         {/* Description */}
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <p 
             className="text-lg md:text-2xl text-gray-800 leading-relaxed font-medium"
             style={{
               textShadow: '0 0 8px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03)',
             }}
           >
-            Award winning Frontend Designer; elevating digital experiences, crafting intuitive interfaces, and driving
-            meaningful impact
+           Skilled Full Stack Web Developer; building intuitive and robust web solutions, and delivering meaningful results from front to back.
           </p>
         </div>
 
