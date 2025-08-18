@@ -2,16 +2,20 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import logoSrc from '../../../public/images/rosopak.png'
+
 
 
 function Navbar() {
   const [shineKey, setShineKey] = useState(0);
 
   return (
-    <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5">
+    <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 md:py-5">
       {/* Logo - responsive sizing */}
-      <div className="flex-shrink-0">
+      <div className="flex-shrink-0 cursor-pointer">
+        <Link href="https://www.rosopak.com/">
+
         <Image 
           src={logoSrc} 
           width={35} 
@@ -19,6 +23,7 @@ function Navbar() {
           alt="logo" 
           className="sm:w-[40px] sm:h-[40px] md:w-[45px] md:h-[45px] lg:w-[50px] lg:h-[50px]"
         />
+        </Link>
       </div>
        
       {/* CTA Button - responsive sizing and text */}
